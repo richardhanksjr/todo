@@ -1,2 +1,29 @@
-<h1>Welcome</h1>
-<p>{{name}}</p>
+<h1>Add a New Task</h1>
+
+<form action = '/contactForm' method = 'POST'>
+  <input type='text' name = 'name' placeholder="name"/>
+  <input type='submit'/>
+</form>
+
+<table>
+<tr>
+<th>Task</th>
+{{#each allTasks}}
+	<tr>
+	<td>
+	
+	
+	{{this.name}}
+	<form action = "updateTask" method = "POST">
+		<input type = "hidden" name = "id" value = {{this.id}}>
+		<input type = "text" name = "name" value = "" placeholder = {{this.name}}>
+		<input type = "submit" value = "Update Task">
+	</form>
+	<form action = "deleteTask" method = "POST">
+		<input type = "hidden" name = "id" value = {{this.id}}>
+		<input type = "submit" value = "Delete Task">
+	</form>
+	</td>
+	</tr>
+{{/each}}
+</table>
