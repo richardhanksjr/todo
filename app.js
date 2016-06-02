@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 //set path to views folder
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
-
+var port = process.env.PORT || 3000;
 
 //set static public file
 app.use(express.static(__dirname + '/public'));
@@ -39,7 +39,7 @@ app.use(function(err, req, res, next){
       res.send('500');
 });
 
-app.listen(3000, function(){
+app.listen(port, function(){
 
   console.log('In class demo server started on port 3000');
 });
